@@ -88,6 +88,8 @@ async function setCardsField(cardId){
     state.fieldCards.player.style.display = "block";
     state.fieldCards.computer.style.display = "block";
 
+    await hiddenCardDetails();
+
     state.fieldCards.player.src = cardData[cardId].img;
     state.fieldCards.computer.src = cardData[computerCardId].img;
 
@@ -95,6 +97,12 @@ async function setCardsField(cardId){
 
     await updateScore();
     await drawButton(duelResults);
+}
+
+async function hiddenCardDetails(){
+    state.cardSprites.avatar.src = "";
+    state.cardSprites.name.innerText = "";
+    state.cardSprites.type.innerText = "";
 }
 
 async function drawButton(text){
@@ -168,6 +176,9 @@ async function playAudio(status){
 }
 
 function init() {
+    state.fieldCards.player.style.diplay = "none";
+    state.fieldCards.computer.style.display = "none";
+
     drawCards(5, state.playerSides.player1);
     drawCards(5, state.playerSides.computer);
 }
