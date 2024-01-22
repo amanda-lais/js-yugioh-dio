@@ -21,7 +21,7 @@ const state = {
 const playerSides = {
     player1: "player-field-card",
     computer: "computer-field-card",
-;}
+};
 
 const pathImages = ".src/assets/icons/";
 
@@ -51,6 +51,8 @@ const cardData = [
         LoseOf: [1],
     },
 ];
+
+
 
 async function drawCards(cardNumbers, fieldSide){
     for(let i = 0; i < cardNumbers; i++){
