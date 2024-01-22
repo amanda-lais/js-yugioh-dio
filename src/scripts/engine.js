@@ -66,7 +66,7 @@ async function createCardImage(IdCard, fieldSide){
     cardImage.classList.add("card");
 
 
-    if(fieldSide === playerSides.player1){
+    if(fieldSide === state.playerSides.player1){
         cardImage.addEventListener("mouseover", () => {
             drawSelectCard(IdCard);
         });
@@ -95,6 +95,11 @@ async function setCardsField(cardId){
 
     // await updateScore();
     await drawButton(duelResults);
+}
+
+async function drawButton(text){
+    state.actions.button.innerText = text;
+    state.actions.button.style.display = "block";
 }
 
 async function checkDuelResults(playerCardId, computerCardId){
@@ -139,8 +144,8 @@ async function drawCards(cardNumbers, fieldSide){
 }
 
 function init() {
-    drawCards(5, playerSides.player1);
-    drawCards(5, playerSides.computer);
+    drawCards(5, state.playerSides.player1);
+    drawCards(5, state.playerSides.computer);
 }
 
 init();
