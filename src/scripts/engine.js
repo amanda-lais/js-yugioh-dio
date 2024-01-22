@@ -100,10 +100,11 @@ async function setCardsField(cardId){
 async function drawButton(text){
     state.actions.button.innerText = text;
     state.actions.button.style.display = "block";
+    
 }
 
 async function checkDuelResults(playerCardId, computerCardId){
-    let duelResults = "Empate";
+    let duelResults = "Tied";
     let playerCard = cardData[playerCardId];
 
     if(playerCard.WinOf.includes(computerCardId)){
